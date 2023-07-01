@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+   
+    <link href='https://fonts.googleapis.com/css?family=Montserrat|Cardo' rel='stylesheet' type='text/css'>
+<link href='style.css' rel='stylesheet' type='text/css'>
+</head>
+<style>
+    .main_h {
+    position: fixed;
+    top: 0px;
+    max-height: 70px;
+    z-index: 999;
+    width: 100%;
+    padding-top: 17px;
+    background: none;
+    overflow: hidden;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    opacity: 0;
+    top: -100px;
+    padding-bottom: 6px;
+    font-family: "Montserrat", sans-serif;
+  }
+  @media only screen and (max-width: 766px) {
+    .main_h {
+      padding-top: 25px;
+    }
+  }
+  
+  .open-nav {
+    max-height: 400px !important;
+  }
+  .open-nav .mobile-toggle {
+    transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+  }
+  
+  .sticky {
+    background-color: rgba(255, 255, 255, 0.93);
+    opacity: 1;
+    top: 0px;
+    border-bottom: 1px solid gainsboro;
+  }
+  
+  .logo {
+    width: 50px;
+    font-size: 25px;
+    color: #8f8f8f;
+    text-transform: uppercase;
+    float: left;
+    display: block;
+    margin-top: 0;
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+  @media only screen and (max-width: 766px) {
+    .logo {
+      float: none;
+    }
+  }
+  
+  nav {
+    float: right;
+    width: 60%;
+  }
+  @media only screen and (max-width: 766px) {
+    nav {
+      width: 100%;
+    }
+  }
+  nav ul {
+    list-style: none;
+    overflow: hidden;
+    text-align: right;
+    float: right;
+  }
+  @media only screen and (max-width: 766px) {
+    nav ul {
+      padding-top: 10px;
+      margin-bottom: 22px;
+      float: left;
+      text-align: center;
+      width: 100%;
+    }
+  }
+  nav ul li {
+    display: inline-block;
+    margin-left: 35px;
+    line-height: 1.5;
+  }
+  @media only screen and (max-width: 766px) {
+    nav ul li {
+      width: 100%;
+      padding: 7px 0;
+      margin: 0;
+    }
+  }
+  nav ul a {
+    color: #888888;
+    text-transform: uppercase;
+    font-size: 12px;
+  }
+  
+  .mobile-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 20px;
+    position: absolute;
+    right: 22px;
+    top: 0;
+    width: 30px;
+    -webkit-transition: all 200ms ease-in;
+    -moz-transition: all 200ms ease-in;
+    transition: all 200ms ease-in;
+  }
+  @media only screen and (max-width: 766px) {
+    .mobile-toggle {
+      display: block;
+    }
+  }
+  .mobile-toggle span {
+    width: 30px;
+    height: 4px;
+    margin-bottom: 6px;
+    border-radius: 1000px;
+    background: #8f8f8f;
+    display: block;
+  }
+  
+  .row {
+    width: 100%;
+    max-width: 940px;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 2%;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    color: #8f8f8f;
+    background: white;
+    font-family: "Cardo", serif;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  h1 {
+    font-size: 30px;
+    line-height: 1.8;
+    text-transform: uppercase;
+    font-family: "Montserrat", sans-serif;
+  }
+  
+  p {
+    margin-bottom: 20px;
+    font-size: 17px;
+    line-height: 2;
+  }
+  
+  .content {
+    padding: 50px 2% 250px;
+  }
+  
+  .hero {
+    position: relative;
+    background: url(http://www.philippefercha.com/cd/toggle-menu-bg.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    text-align: center;
+    color: #fff;
+    padding-top: 110px;
+    min-height: 500px;
+    letter-spacing: 2px;
+    font-family: "Montserrat", sans-serif;
+  }
+  .hero h1 {
+    font-size: 50px;
+    line-height: 1.3;
+  }
+  .hero h1 span {
+    font-size: 25px;
+    color: #e8f380;
+    border-bottom: 2px solid #e8f380;
+    padding-bottom: 12px;
+    line-height: 3;
+  }
+  
+  .mouse {
+    display: block;
+    margin: 0 auto;
+    width: 26px;
+    height: 46px;
+    border-radius: 13px;
+    border: 2px solid #e8f380;
+    position: absolute;
+    bottom: 40px;
+    position: absolute;
+    left: 50%;
+    margin-left: -26px;
+  }
+  .mouse span {
+    display: block;
+    margin: 6px auto;
+    width: 2px;
+    height: 2px;
+    border-radius: 4px;
+    background: #e8f380;
+    border: 1px solid transparent;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-name: scroll;
+    animation-name: scroll;
+  }
+  
+  @-webkit-keyframes scroll {
+    0% {
+      opacity: 1;
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+  
+    100% {
+      opacity: 0;
+      -webkit-transform: translateY(20px);
+      transform: translateY(20px);
+    }
+  }
+  @keyframes scroll {
+    0% {
+      opacity: 1;
+      -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+      transform: translateY(0);
+    }
+  
+    100% {
+      opacity: 0;
+      -webkit-transform: translateY(20px);
+      -ms-transform: translateY(20px);
+      transform: translateY(20px);
+    }
+  }
+  
+
+
+
+  /* **************service*************** */
+
+  
+  @import url('https://fonts.googleapis.com/css?family=Roboto');
+body {background-color: white; overflow-x: hidden; font-family: roboto; -webkit-font-smoothing: antialiased; margin: 0;}
+.flex { display: -webkit-flex; display: flex; -webkit-flex-direction: row;  flex-direction: row; -webkit-justify-content: flex-start; justify-content: flex-start;}
+
+.slider-wrapper div {position: relative;}
+.slider-wrapper {margin-top: 5vw;  margin-left: 11vw;}
+.slide-image {height: 24vw;}
+.slide-image img {width: 24vw; cursor: pointer;}
+.slide-content {width: 45vw; color: rgb(10, 0, 0); padding:3vw 18vw 3vw 9vw;}
+.slide-date {color: #0a8acb; font-size: 1.1vw; font-weight: 400; letter-spacing: 0.1vw; padding-bottom: 1.4vw;}
+.slide-title {font-size: 1.2vw; font-weight: 400; letter-spacing: 0.1vw; line-height: 1.55vw; padding-bottom: 1.8vw;}
+.slide-text {font-size: 0.80vw; line-height: 1.2vw; opacity: 0.8; padding-bottom: 4vw;}
+.slide-more {font-weight: 400; letter-spacing: 0.1vw; float: left; font-size: 0.9vw;}
+.slide-bullet {width: 0.5vw; height: 0.5vw; background-color: #0b8bcc; border-radius: 200%; position: relative; margin-left: 1.2vw;}
+.slide-nav {margin-left: 64vw; margin-top: -5.5vw;}
+
+div.overlay-blue {width: 100%; height: 100%; position: absolute; top: 0; transition: 0.5s ease all;}
+div.overlay-blue:hover {background-color: rgba(13, 27, 43, 0.5);}
+
+.arrows{width: 3.5vw; margin-top: -5.8vw; margin-left: 72vw; position: relative;}
+.arrow {display: inline-block; position: absolute; width: 1.2vw; height: 1.2vw; background: transparent; text-indent: -9999px; border-top: 0.15vw solid rgb(60, 21, 21); border-left: 0.15vw solid rgb(53, 19, 19); transition: all .1s ease-in-out; text-decoration: none; color: transparent;
+}
+.arrow:hover {border-color: #0A8ACB; border-width: 0.25vw;
+}
+.arrow:before {display: block; height: 200%; width: 200%; margin-left: -50%; margin-top: -50%; content: ""; transform: rotate(45deg);}
+.arrow.prev {transform: rotate(-45deg); left: 0;}
+.arrow.next {transform: rotate(135deg); right: 0;}
+.slider-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+}
+
+.slide {
+  flex: 0 0 100%; /* Adjust the width as needed */
+}
+
+.arrows {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  z-index: 1;
+}
+
+.arrow {
+  
+  /* Add arrow icon or styling as needed */
+  cursor: pointer;
+}
+
+
+</style>
+<body>
+
+    <header class="main_h">
+
+        <div class="row">
+            <img class="logo" href="#"><img src="https://th.bing.com/th/id/OIP.1d7TQI67pwfr0F5jqTgD1AAAAA?pid=ImgDet&rs=1" style="height: 50px; width:50px; border-radius: 10px;"></img></a>
+    
+            <div class="mobile-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+    
+            <nav>
+                <ul>
+                    <li><a href=".sec01" >Services</a></li>
+                    <li><a href=".sec02">Section 02</a></li>
+                    <li><a href=".sec03">Section 03</a></li>
+                    <li><a href=".sec04">Section 04</a></li>
+                </ul>
+            </nav>
+    
+        </div> <!-- / row -->
+    
+    </header>
+    
+    <div class="hero">
+    
+        <h1><span>I'm a cool</span><br>Navigation</h1>
+    
+        <div class="mouse">
+            <span></span>
+        </div>
+    
+    </div>
+    
+    <div class="row content">
+        <h1 class="sec01">Services</h1>
+        <div class="slider" style="">
+            <div class="slider-wrapper flex">
+                <div class="slide flex">
+                    <div class="slide-image slider-link prev"><img src="https://goranvrban.com/codepen/img2.jpg"><div class="overlay"></div></div>
+                    <div class="slide-content">
+                        <div class="slide-date">30.07.2017.</div>
+                        <div class="slide-title">LOREM IPSUM DOLOR SITE MATE, AD EST ABHORREANT</div>
+                        <div class="slide-text">Lorem ipsum dolor sit amet, ad est abhorreant efficiantur, vero oporteat apeirian in vel. Et appareat electram appellantur est. Ei nec duis invenire. Cu mel ipsum laoreet, per rebum omittam ex. </div>
+                        <div class="slide-more">READ MORE</div>
+                    </div>	
+                </div>
+                <div class="slide flex">
+                    <div class="slide-image slider-link next"><img src="https://goranvrban.com/codepen/img3.jpg"><div class="overlay"></div></div>
+                    <div class="slide-content">
+                        <div class="slide-date">30.08.2017.</div>
+                        <div class="slide-title">LOREM IPSUM DOLOR SITE MATE, AD EST ABHORREANT</div>
+                        <div class="slide-text">Lorem ipsum dolor sit amet, ad est abhorreant efficiantur, vero oporteat apeirian in vel. Et appareat electram appellantur est. Ei nec duis invenire. Cu mel ipsum laoreet, per rebum omittam ex. </div>
+                        <div class="slide-more">READ MORE</div>
+                    </div>	
+                </div>	
+                <div class="slide flex">
+                    <div class="slide-image slider-link next"><img src="https://goranvrban.com/codepen/img5.jpg"><div class="overlay"></div></div>
+                    <div class="slide-content">
+                        <div class="slide-date">30.09.2017.</div>
+                        <div class="slide-title">LOREM IPSUM DOLOR SITE MATE, AD EST ABHORREANT</div>
+                        <div class="slide-text">Lorem ipsum dolor sit amet, ad est abhorreant efficiantur, vero oporteat apeirian in vel. Et appareat electram appellantur est. Ei nec duis invenire. Cu mel ipsum laoreet, per rebum omittam ex. </div>
+                        <div class="slide-more">READ MORE</div>
+                    </div>	
+                </div>
+                    <div class="slide flex">
+                    <div class="slide-image slider-link next"><img src="https://goranvrban.com/codepen/img6.jpg"><div class="overlay"></div></div>
+                    <div class="slide-content">
+                        <div class="slide-date">30.10.2017.</div>
+                        <div class="slide-title">LOREM IPSUM DOLOR SITE MATE, AD EST ABHORREANT</div>
+                        <div class="slide-text">Lorem ipsum dolor sit amet, ad est abhorreant efficiantur, vero oporteat apeirian in vel. Et appareat electram appellantur est. Ei nec duis invenire. Cu mel ipsum laoreet, per rebum omittam ex. </div>
+                        <div class="slide-more">READ MORE</div>
+                    </div>	
+                </div>
+            </div>
+            <div class="arrows">
+                <div class="arrow prev"></div>
+                <div class="arrow next"></div>
+              </div>
+            <div class="arrows">
+            <a href="#" title="Previous" class="arrow slider-link prev"></a>
+            <a href="#" title="Next" class="arrow slider-link next"></a>
+            </div>
+            </div>
+
+        
+        
+        <h1 class="sec02">Section 02</h1>
+        <p>Lorem ipsum dolor sit amet,  </p>
+        <h1 class="sec03">Section 03</h1>
+        <p>Lorem ipsum dolor sit amet, .</p>
+        <h1 class="sec04">Section 04</h1>
+        <p>Lorem ipsum dolor sit amet, </p>
+    </div>
+
+    <!-- ***********Footer****************** -->
+    <hr class="" style=" margin-Left: 8%;margin-right: 8%;">
+    <div class="container">
+        <img src="https://th.bing.com/th/id/OIP.1d7TQI67pwfr0F5jqTgD1AAAAA?pid=ImgDet&rs=1" alt="Your Image" style="height: 50px; width:50px; display: block;margin: 0 auto; border-radius: 10px;">
+        <div class="text">
+          <h2 style="text-align: center; color: brown;">ahead</h2>
+        </div>
+        <div class="container" style="display: flex; flex-direction: row; margin-left: auto;">
+            <p style="margin-left: 33%;">📨 hi@ahead-app.com</p>
+            <p style="margin-left: 10px;">📬 Auguststraße 26, 10117 Berlin</p>
+            
+        </div>
+        <img src="https://static.vecteezy.com/system/resources/previews/002/520/835/original/download-application-button-apple-app-store-free-vector.jpg" style="display: block;margin: 0 auto; height: 11%; width: 15%; ">
+        <p style="text-align: center;">2023@ ahead app. All right reserved</p>
+        
+    </div>
+    
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="script.js">
+        $(document).ready(function() {
+    // Your JavaScript code here
+    // Sticky Header
+      $(window).scroll(function() {
+
+      if ($(window).scrollTop() > 100) {
+          $('.main_h').addClass('sticky');
+      } else {
+          $('.main_h').removeClass('sticky');
+      }
+      });
+
+// Mobile Navigation
+$('.mobile-toggle').click(function() {
+if ($('.main_h').hasClass('open-nav')) {
+$('.main_h').removeClass('open-nav');
+} else {
+$('.main_h').addClass('open-nav');
+}
+});
+
+$('.main_h li a').click(function() {
+if ($('.main_h').hasClass('open-nav')) {
+$('.navigation').removeClass('open-nav');
+$('.main_h').removeClass('open-nav');
+}
+});
+
+// navigation scroll lijepo radi materem
+$('nav a').click(function(event) {
+var id = $(this).attr("href");
+var offset = 70;
+var target = $(id).offset().top - offset;
+$('html, body').animate({
+scrollTop: target
+}, 500);
+event.preventDefault();
+});
+  });
+
+
+//   *******************Service*******************
+( function($) {
+  
+    $(document).ready(function() {
+      
+      var s           = $('.slider'),
+          sWrapper    = s.find('.slider-wrapper'),
+          sItem       = s.find('.slide'),
+          btn         = s.find('.slider-link'),
+          sWidth      = sItem.width(),
+          sCount      = sItem.length,
+          slide_date  = s.find('.slide-date'),
+          slide_title = s.find('.slide-title'),
+          slide_text  = s.find('.slide-text'),
+          slide_more  = s.find('.slide-more'),
+          slide_image = s.find('.slide-image img'),
+          sTotalWidth = sCount * sWidth;
+      
+      sWrapper.css('width', sTotalWidth);
+      sWrapper.css('width', sTotalWidth);
+      
+      var clickCount  = 0;
+      
+      btn.on('click', function(e) {
+        e.preventDefault();
+  
+        if( $(this).hasClass('next') ) {
+          
+          ( clickCount < ( sCount - 1 ) ) ? clickCount++ : clickCount = 0;
+        } else if ( $(this).hasClass('prev') ) {
+          
+          ( clickCount > 0 ) ? clickCount-- : ( clickCount = sCount - 1 );
+        }
+        TweenMax.to(sWrapper, 0.4, {x: '-' + ( sWidth * clickCount ) })
+  
+  
+        //CONTENT ANIMATIONS
+  
+        var fromProperties = {autoAlpha:0, x:'-50', y:'-10'};
+        var toProperties = {autoAlpha:0.8, x:'0', y:'0'};
+  
+        TweenLite.fromTo(slide_image, 1, {autoAlpha:0, y:'40'}, {autoAlpha:1, y:'0'});
+        TweenLite.fromTo(slide_date, 0.4, fromProperties, toProperties);
+        TweenLite.fromTo(slide_title, 0.6, fromProperties, toProperties);
+        TweenLite.fromTo(slide_text, 0.8, fromProperties, toProperties);
+        TweenLite.fromTo(slide_more, 1, fromProperties, toProperties);
+  
+      });
+            
+    });
+  })(jQuery);
+  
+  $('.overlay').addClass('overlay-blue');
+  window.addEventListener("DOMContentLoaded", function () {
+  var sliderWrapper = document.querySelector(".slider-wrapper");
+  var slider = document.querySelector(".slider");
+  var slides = document.querySelectorAll(".slide");
+  var prevArrow = document.querySelector(".arrow.prev");
+  var nextArrow = document.querySelector(".arrow.next");
+  var slideWidth = sliderWrapper.offsetWidth; // Use the wrapper's width
+
+  var currentPosition = 0;
+  slider.style.transform = "translateX(" + currentPosition + "px)";
+
+  function moveNext() {
+    currentPosition -= slideWidth;
+    if (currentPosition < -(slides.length - 1) * slideWidth) {
+      currentPosition = 0;
+    }
+    slider.style.transform = "translateX(" + currentPosition + "px)";
+  }
+
+  function movePrev() {
+    currentPosition += slideWidth;
+    if (currentPosition > 0) {
+      currentPosition = -(slides.length - 1) * slideWidth;
+    }
+    slider.style.transform = "translateX(" + currentPosition + "px)";
+  }
+
+  prevArrow.addEventListener("click", movePrev);
+  nextArrow.addEventListener("click", moveNext);
+});
+
+      </script>
+      
+
+    
+   
+</body>
+</html>
